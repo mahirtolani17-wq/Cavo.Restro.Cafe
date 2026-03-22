@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", serif;
+  
+  --color-cave-950: #0a0807;
+  --color-cave-900: #171412;
+  --color-cave-800: #26211e;
+  --color-cave-700: #3d3531;
+  
+  --color-fire-base: #ea580c;
+  --color-fire-glow: #f59e0b;
+  --color-fire-light: #fef3c7;
+}
+
+body {
+  background-color: var(--color-cave-950);
+  color: #e7e5e4;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+/* Old Cave Panel Effect */
+.stone-panel {
+  background: linear-gradient(145deg, rgba(23, 20, 18, 0.8), rgba(10, 8, 7, 0.9));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 158, 11, 0.08);
+  border-top: 1px solid rgba(245, 158, 11, 0.15);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.9), inset 0 2px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stone-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Fire Glow Effects */
+@keyframes flicker {
+  0%, 100% { opacity: 1; text-shadow: 0 0 20px rgba(245, 158, 11, 0.5), 0 0 40px rgba(234, 88, 12, 0.3); }
+  50% { opacity: 0.9; text-shadow: 0 0 15px rgba(245, 158, 11, 0.3), 0 0 30px rgba(234, 88, 12, 0.1); }
+  25%, 75% { opacity: 0.95; text-shadow: 0 0 25px rgba(245, 158, 11, 0.6), 0 0 50px rgba(234, 88, 12, 0.4); }
+}
+
+.fire-glow-text {
+  color: var(--color-fire-light);
+  animation: flicker 4s infinite alternate ease-in-out;
+}
+
+.fire-glow-box {
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.2), inset 0 0 30px rgba(234, 88, 12, 0.15);
+}
+
+/* Grain Overlay for the whole site */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* Vignette Effect */
+.vignette-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 40;
+  background: radial-gradient(circle at center, transparent 50%, rgba(10, 8, 7, 0.4) 100%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cave-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-cave-800);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cave-700);
+}
