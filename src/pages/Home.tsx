@@ -26,7 +26,7 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.2 }}
             className="text-5xl md:text-7xl lg:text-8xl font-display font-light tracking-tight uppercase mb-6 text-stone-200"
           >
-            Enter The <span className="fire-glow-text font-medium italic">Cave</span>
+            Enter The <span className="fire-glow-text font-medium italic">Cavo</span>
           </motion.h1>
           
           <motion.p
