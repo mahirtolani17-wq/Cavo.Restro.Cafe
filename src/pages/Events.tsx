@@ -6,32 +6,32 @@ const pastEvents = [
   {
     title: 'Deep Cave Sessions Vol. 1',
     date: 'March 15, 2026',
-    img: '/images/78180a04eb3d0117a0aaeb09df0d846d.jpg',
+    img: 'https://drive.google.com/uc?export=view&id=1SaVdaihuRVIQfTR2kWjX8jcT8dMEqQgs',
   },
   {
     title: 'Ember Nights Special',
     date: 'March 10, 2026',
-    img: '/images/ec29c594a71482d7970ac6322dee525b.jpg',
+    img: 'https://drive.google.com/uc?export=view&id=1Uvixtd-2xGAliZV-HfoALCWorXClRc9V',
   },
   {
     title: 'Sundowner Flow',
     date: 'March 05, 2026',
-    img: '/images/7143ee4f46a0788e7f2a8bfceaea1d66.jpg',
+    img: 'https://drive.google.com/uc?export=view&id=1w3lWlHfQntiRsyseaiXf0TKLUa0Y7F5J',
   },
   {
     title: 'The Grand Opening',
     date: 'February 28, 2026',
-    img: '/images/80ba7bf91e2c93bb9a400ce308759033.jpg',
+    img: 'https://drive.google.com/uc?export=view&id=16fkHLVrslN56BSy8fdy9QgEOe4GPbgrP',
   },
   {
     title: 'Acoustic Cave',
     date: 'February 20, 2026',
-    img: '/images/1297fe39d4d78619c7901d0f700c901d.jpg',
+    img: 'https://drive.google.com/uc?export=view&id=1QBFa19aHvgEyH2JS4ORtjoZhaaEnbX5P',
   },
   {
     title: 'Midnight Rituals',
     date: 'February 14, 2026',
-    img: '/images/2f7932f383a2a8d57538f94e7106feec.jpg',
+    img: 'https://drive.google.com/uc?export=view&id=1wh3t1ymMnkZ9Spx-yhMrMLjKWxJJHIem',
   }
 ];
 
@@ -167,10 +167,10 @@ export default function Events() {
               className="grid grid-cols-2 gap-4"
             >
               <div className="stone-panel p-2 rounded-[1.5rem]">
-                <img src="/images/80ba7bf91e2c93bb9a400ce308759033.jpg" alt="Party 1" className="w-full h-64 object-cover rounded-[1rem] opacity-90" referrerPolicy="no-referrer" />
+                <img src="https://drive.google.com/uc?export=view&id=16fkHLVrslN56BSy8fdy9QgEOe4GPbgrP" alt="Party 1" className="w-full h-64 object-cover rounded-[1rem] opacity-90" referrerPolicy="no-referrer" />
               </div>
               <div className="stone-panel p-2 rounded-[1.5rem] translate-y-12">
-                <img src="/images/2f7932f383a2a8d57538f94e7106feec.jpg" alt="Party 2" className="w-full h-64 object-cover rounded-[1rem] opacity-90" referrerPolicy="no-referrer" />
+                <img src="https://drive.google.com/uc?export=view&id=1wh3t1ymMnkZ9Spx-yhMrMLjKWxJJHIem" alt="Party 2" className="w-full h-64 object-cover rounded-[1rem] opacity-90" referrerPolicy="no-referrer" />
               </div>
             </motion.div>
           </div>

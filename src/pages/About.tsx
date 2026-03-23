@@ -39,7 +39,7 @@ export default function About() {
             >
               <div className="stone-panel p-2 rounded-[1.5rem]">
                 <img
-                  src="/images/1297fe39d4d78619c7901d0f700c901d.jpg"
+                  src="https://drive.google.com/uc?export=view&id=1QBFa19aHvgEyH2JS4ORtjoZhaaEnbX5P"
                   alt="Cave Inspiration"
                   className="w-full h-full object-cover rounded-[1rem] opacity-90 hover:opacity-100 transition-all duration-1000"
                   referrerPolicy="no-referrer"
