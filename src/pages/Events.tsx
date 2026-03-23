@@ -1,40 +1,43 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, MapPin, Calendar } from 'lucide-react';
 
 const pastEvents = [
   {
     title: 'Deep Cave Sessions Vol. 1',
     date: 'March 15, 2026',
-    img: 'https://img.sanishtech.com/u/78180a04eb3d0117a0aaeb09df0d846d.jpg',
+    img: '/images/78180a04eb3d0117a0aaeb09df0d846d.jpg',
   },
   {
     title: 'Ember Nights Special',
     date: 'March 10, 2026',
-    img: 'https://img.sanishtech.com/u/ec29c594a71482d7970ac6322dee525b.jpg',
+    img: '/images/ec29c594a71482d7970ac6322dee525b.jpg',
   },
   {
     title: 'Sundowner Flow',
     date: 'March 05, 2026',
-    img: 'https://img.sanishtech.com/u/7143ee4f46a0788e7f2a8bfceaea1d66.jpg',
+    img: '/images/7143ee4f46a0788e7f2a8bfceaea1d66.jpg',
   },
   {
     title: 'The Grand Opening',
     date: 'February 28, 2026',
-    img: 'https://img.sanishtech.com/u/80ba7bf91e2c93bb9a400ce308759033.jpg',
+    img: '/images/80ba7bf91e2c93bb9a400ce308759033.jpg',
   },
   {
     title: 'Acoustic Cave',
     date: 'February 20, 2026',
-    img: 'https://img.sanishtech.com/u/1297fe39d4d78619c7901d0f700c901d.jpg',
+    img: '/images/1297fe39d4d78619c7901d0f700c901d.jpg',
   },
   {
     title: 'Midnight Rituals',
     date: 'February 14, 2026',
-    img: 'https://img.sanishtech.com/u/2f7932f383a2a8d57538f94e7106feec.jpg',
+    img: '/images/2f7932f383a2a8d57538f94e7106feec.jpg',
   }
 ];
 
 export default function Events() {
+  const [activeLocation, setActiveLocation] = useState('Ahmedabad');
+
   return (
     <div className="w-full pt-32 pb-24">
       {/* Hero */}
@@ -58,8 +61,32 @@ export default function Events() {
         </div>
       </section>
 
-      {/* Previous Events Gallery */}
-      <section className="py-24 relative z-10">
+      {/* Location Toggle */}
+      <section className="relative z-10 -mt-8 mb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+          <div className="stone-panel p-1 rounded-full inline-flex">
+            {['Ahmedabad', 'Mehsana'].map((loc) => (
+              <button
+                key={loc}
+                onClick={() => setActiveLocation(loc)}
+                className={`flex items-center gap-2 px-8 py-3 rounded-full font-display uppercase tracking-widest text-sm transition-all duration-500 ${
+                  activeLocation === loc
+                    ? 'bg-fire-base text-white font-medium shadow-[0_0_15px_rgba(255,107,53,0.4)]'
+                    : 'text-stone-400 hover:text-stone-200'
+                }`}
+              >
+                <MapPin size={16} />
+                {loc}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {activeLocation === 'Ahmedabad' ? (
+        <>
+          {/* Previous Events Gallery */}
+          <section className="py-16 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-display font-light uppercase tracking-wider mb-4 text-stone-200">
@@ -140,15 +167,35 @@ export default function Events() {
               className="grid grid-cols-2 gap-4"
             >
               <div className="stone-panel p-2 rounded-[1.5rem]">
-                <img src="https://img.sanishtech.com/u/80ba7bf91e2c93bb9a400ce308759033.jpg" alt="Party 1" className="w-full h-64 object-cover rounded-[1rem] opacity-90" referrerPolicy="no-referrer" />
+                <img src="/images/80ba7bf91e2c93bb9a400ce308759033.jpg" alt="Party 1" className="w-full h-64 object-cover rounded-[1rem] opacity-90" referrerPolicy="no-referrer" />
               </div>
               <div className="stone-panel p-2 rounded-[1.5rem] translate-y-12">
-                <img src="https://img.sanishtech.com/u/2f7932f383a2a8d57538f94e7106feec.jpg" alt="Party 2" className="w-full h-64 object-cover rounded-[1rem] opacity-90" referrerPolicy="no-referrer" />
+                <img src="/images/2f7932f383a2a8d57538f94e7106feec.jpg" alt="Party 2" className="w-full h-64 object-cover rounded-[1rem] opacity-90" referrerPolicy="no-referrer" />
               </div>
             </motion.div>
           </div>
         </div>
       </section>
+        </>
+      ) : (
+        <section className="py-24 relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="stone-panel rounded-[2rem] p-16 text-center max-w-2xl mx-auto"
+            >
+              <div className="w-20 h-20 mx-auto bg-fire-base/10 rounded-full flex items-center justify-center mb-6 text-fire-glow">
+                <Calendar size={40} />
+              </div>
+              <h2 className="text-4xl font-display font-medium uppercase tracking-wider text-stone-200 mb-4">Coming Soon</h2>
+              <p className="text-stone-400 text-lg leading-relaxed font-light">
+                Get ready for unforgettable nights. We are preparing an incredible lineup of events for our Mehsana location.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+      )}
     </div>
   );
 }

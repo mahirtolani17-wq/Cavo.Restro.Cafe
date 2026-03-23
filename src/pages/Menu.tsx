@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Utensils, Coffee, Flame, Star } from 'lucide-react';
+import { Utensils, Coffee, Flame, Star, MapPin } from 'lucide-react';
 
 const menuData = {
   Starters: [
@@ -36,12 +36,13 @@ const categories = [
 ];
 
 export default function Menu() {
+  const [activeLocation, setActiveLocation] = useState('Ahmedabad');
   const [activeCategory, setActiveCategory] = useState('Starters');
 
   return (
     <div className="w-full pt-32 pb-24 min-h-screen relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -60,8 +61,30 @@ export default function Menu() {
           </motion.p>
         </div>
 
-        {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
+        {/* Location Toggle */}
+        <div className="flex justify-center mb-16">
+          <div className="stone-panel p-1 rounded-full inline-flex">
+            {['Ahmedabad', 'Mehsana'].map((loc) => (
+              <button
+                key={loc}
+                onClick={() => setActiveLocation(loc)}
+                className={`flex items-center gap-2 px-8 py-3 rounded-full font-display uppercase tracking-widest text-sm transition-all duration-500 ${
+                  activeLocation === loc
+                    ? 'bg-fire-base text-white font-medium shadow-[0_0_15px_rgba(255,107,53,0.4)]'
+                    : 'text-stone-400 hover:text-stone-200'
+                }`}
+              >
+                <MapPin size={16} />
+                {loc}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {activeLocation === 'Ahmedabad' ? (
+          <>
+            {/* Category Tabs */}
+            <div className="flex flex-wrap justify-center gap-4 mb-16">
           {categories.map((cat, i) => (
             <motion.button
               key={cat.id}
@@ -109,6 +132,22 @@ export default function Menu() {
             </motion.div>
           </AnimatePresence>
         </div>
+          </>
+        ) : (
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="stone-panel rounded-[2rem] p-16 text-center max-w-2xl mx-auto"
+          >
+            <div className="w-20 h-20 mx-auto bg-fire-base/10 rounded-full flex items-center justify-center mb-6 text-fire-glow">
+              <Utensils size={40} />
+            </div>
+            <h2 className="text-4xl font-display font-medium uppercase tracking-wider text-stone-200 mb-4">Coming Soon</h2>
+            <p className="text-stone-400 text-lg leading-relaxed font-light">
+              Our culinary team is crafting an exclusive menu for the Mehsana location. Stay tuned for a dining experience like no other.
+            </p>
+          </motion.div>
+        )}
       </div>
     </div>
   );

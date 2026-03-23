@@ -37,7 +37,7 @@ export default function Locations() {
               className="stone-panel rounded-[2rem] p-3"
             >
               <div className="aspect-[16/9] relative rounded-[1.5rem] overflow-hidden">
-                <img src="https://img.sanishtech.com/u/80ba7bf91e2c93bb9a400ce308759033.jpg" alt="Ahmedabad Location" className="w-full h-full object-cover opacity-90" referrerPolicy="no-referrer" />
+                <img src="/images/80ba7bf91e2c93bb9a400ce308759033.jpg" alt="Ahmedabad Location" className="w-full h-full object-cover opacity-90" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-gradient-to-t from-cave-950 to-transparent"></div>
                 <div className="absolute top-6 left-6 flex items-center gap-2 stone-panel px-4 py-2 rounded-full">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -71,13 +71,26 @@ export default function Locations() {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-4 mb-8">
                   <a href="tel:09265723990" className="flex-1 text-center px-6 py-4 bg-fire-base text-white font-medium tracking-widest uppercase rounded-2xl hover:bg-fire-glow transition-colors">
                     Call to Book
                   </a>
                   <a href="https://share.google/5QgtBXzjBWPgXGBnM" target="_blank" rel="noreferrer" className="flex-1 text-center px-6 py-4 stone-panel text-stone-200 font-medium tracking-widest uppercase rounded-2xl hover:border-fire-glow/50 hover:text-fire-glow transition-colors flex items-center justify-center gap-2">
                     Directions <ExternalLink size={16} />
                   </a>
+                </div>
+
+                <div className="w-full h-48 rounded-2xl overflow-hidden stone-panel p-1">
+                  <iframe 
+                    src="https://maps.google.com/maps?q=Sindhu+Bhavan+Road,+Bodakdev,+Ahmedabad,+Gujarat+380054&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0, borderRadius: '1rem' }} 
+                    allowFullScreen={true} 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Google Map for Cavo Ahmedabad"
+                  ></iframe>
                 </div>
               </div>
             </motion.div>
@@ -91,7 +104,7 @@ export default function Locations() {
               className="stone-panel rounded-[2rem] p-3 relative"
             >
               <div className="aspect-[16/9] relative rounded-[1.5rem] overflow-hidden">
-                <img src="https://img.sanishtech.com/u/1297fe39d4d78619c7901d0f700c901d.jpg" alt="Mehsana Location" className="w-full h-full object-cover grayscale opacity-60" referrerPolicy="no-referrer" />
+                <img src="/images/1297fe39d4d78619c7901d0f700c901d.jpg" alt="Mehsana Location" className="w-full h-full object-cover grayscale opacity-60" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-gradient-to-t from-cave-950 to-transparent"></div>
                 <div className="absolute top-6 left-6 flex items-center gap-2 stone-panel px-4 py-2 rounded-full z-20">
                   <span className="w-2 h-2 rounded-full bg-fire-glow animate-pulse"></span>
