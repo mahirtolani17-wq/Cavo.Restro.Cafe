@@ -6,32 +6,32 @@ const pastEvents = [
   {
     title: 'Deep Cave Sessions Vol. 1',
     date: 'March 15, 2026',
-    img: 'https://drive.google.com/uc?export=view&id=1SaVdaihuRVIQfTR2kWjX8jcT8dMEqQgs',
+    img: 'https://i.ibb.co/0ySBBkTd/IMG-1056.jpg',
   },
   {
     title: 'Ember Nights Special',
     date: 'March 10, 2026',
-    img: 'https://drive.google.com/uc?export=view&id=1Uvixtd-2xGAliZV-HfoALCWorXClRc9V',
+    img: 'https://i.ibb.co/674Sksd6/IMG-1057.jpg',
   },
   {
     title: 'Sundowner Flow',
     date: 'March 05, 2026',
-    img: 'https://drive.google.com/uc?export=view&id=1w3lWlHfQntiRsyseaiXf0TKLUa0Y7F5J',
+    img: 'https://i.ibb.co/7xk8KssX/IMG-1058.jpg',
   },
   {
     title: 'The Grand Opening',
     date: 'February 28, 2026',
-    img: 'https://drive.google.com/uc?export=view&id=16fkHLVrslN56BSy8fdy9QgEOe4GPbgrP',
+    img: 'https://i.ibb.co/93vk24qY/IMG-1054.jpg',
   },
   {
     title: 'Acoustic Cave',
     date: 'February 20, 2026',
-    img: 'https://drive.google.com/uc?export=view&id=1QBFa19aHvgEyH2JS4ORtjoZhaaEnbX5P',
+    img: 'https://i.ibb.co/p64GJk3M/IMG-1055.jpg',
   },
   {
     title: 'Midnight Rituals',
     date: 'February 14, 2026',
-    img: 'https://drive.google.com/uc?export=view&id=1wh3t1ymMnkZ9Spx-yhMrMLjKWxJJHIem',
+    img: 'https://i.ibb.co/HTpgJ403/IMG-1059.jpg',
   }
 ];
 
@@ -167,10 +167,10 @@ export default function Events() {
               className="grid grid-cols-2 gap-4"
             >
               <div className="stone-panel p-2 rounded-[1.5rem]">
-                <img src="https://drive.google.com/uc?export=view&id=16fkHLVrslN56BSy8fdy9QgEOe4GPbgrP" alt="Party 1" className="w-full h-64 object-cover rounded-[1rem] opacity-90" referrerPolicy="no-referrer" />
+                <img src="https://i.ibb.co/93vk24qY/IMG-1054.jpg" alt="Party 1" className="w-full h-64 object-cover rounded-[1rem] opacity-90" referrerPolicy="no-referrer" />
               </div>
               <div className="stone-panel p-2 rounded-[1.5rem] translate-y-12">
-                <img src="https://drive.google.com/uc?export=view&id=1wh3t1ymMnkZ9Spx-yhMrMLjKWxJJHIem" alt="Party 2" className="w-full h-64 object-cover rounded-[1rem] opacity-90" referrerPolicy="no-referrer" />
+                <img src="https://i.ibb.co/HTpgJ403/IMG-1059.jpg" alt="Party 2" className="w-full h-64 object-cover rounded-[1rem] opacity-90" referrerPolicy="no-referrer" />
               </div>
             </motion.div>
           </div>

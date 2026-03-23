@@ -12,7 +12,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-cave-950/80 via-cave-950/40 to-cave-950 z-10"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(10,8,7,0.9)_100%)] z-10"></div>
           <img
-            src="https://drive.google.com/uc?export=view&id=16fkHLVrslN56BSy8fdy9QgEOe4GPbgrP"
+            src="https://i.ibb.co/93vk24qY/IMG-1054.jpg"
             alt="Old Cave Interior"
             className="w-full h-full object-cover opacity-60 scale-105 animate-[pulse_15s_ease-in-out_infinite_alternate]"
             referrerPolicy="no-referrer"
@@ -88,9 +88,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: 'Acoustic Resonance', img: 'https://drive.google.com/uc?export=view&id=1QBFa19aHvgEyH2JS4ORtjoZhaaEnbX5P', icon: <Music size={24} /> },
-              { title: 'Earthy Flavors', img: 'https://drive.google.com/uc?export=view&id=1SaVdaihuRVIQfTR2kWjX8jcT8dMEqQgs', icon: <Utensils size={24} /> },
-              { title: 'Liquid Spirits', img: 'https://drive.google.com/uc?export=view&id=1Uvixtd-2xGAliZV-HfoALCWorXClRc9V', icon: <GlassWater size={24} /> }
+              { title: 'Acoustic Resonance', img: 'https://i.ibb.co/p64GJk3M/IMG-1055.jpg', icon: <Music size={24} /> },
+              { title: 'Earthy Flavors', img: 'https://i.ibb.co/0ySBBkTd/IMG-1056.jpg', icon: <Utensils size={24} /> },
+              { title: 'Liquid Spirits', img: 'https://i.ibb.co/674Sksd6/IMG-1057.jpg', icon: <GlassWater size={24} /> }
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -195,7 +195,7 @@ export default function Home() {
               className="stone-panel p-2 rounded-[1.5rem] group"
             >
               <div className="relative rounded-[1rem] overflow-hidden aspect-[16/9]">
-                <img src="https://drive.google.com/uc?export=view&id=1w3lWlHfQntiRsyseaiXf0TKLUa0Y7F5J" alt="Ahmedabad Location" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90" referrerPolicy="no-referrer" />
+                <img src="https://i.ibb.co/7xk8KssX/IMG-1058.jpg" alt="Ahmedabad Location" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-gradient-to-t from-cave-950 via-cave-950/40 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 w-full p-8">
                   <div className="flex justify-between items-end">
@@ -226,7 +226,7 @@ export default function Home() {
               className="stone-panel p-2 rounded-[1.5rem] group"
             >
               <div className="relative rounded-[1rem] overflow-hidden aspect-[16/9]">
-                <img src="https://drive.google.com/uc?export=view&id=1wh3t1ymMnkZ9Spx-yhMrMLjKWxJJHIem" alt="Mehsana Location" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale opacity-60" referrerPolicy="no-referrer" />
+                <img src="https://i.ibb.co/HTpgJ403/IMG-1059.jpg" alt="Mehsana Location" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale opacity-60" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-gradient-to-t from-cave-950 via-cave-950/60 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 w-full p-8">
                   <div className="flex justify-between items-end">

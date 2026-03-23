@@ -37,7 +37,7 @@ export default function Locations() {
               className="stone-panel rounded-[2rem] p-3"
             >
               <div className="aspect-[16/9] relative rounded-[1.5rem] overflow-hidden">
-                <img src="https://drive.google.com/uc?export=view&id=16fkHLVrslN56BSy8fdy9QgEOe4GPbgrP" alt="Ahmedabad Location" className="w-full h-full object-cover opacity-90" referrerPolicy="no-referrer" />
+                <img src="https://i.ibb.co/93vk24qY/IMG-1054.jpg" alt="Ahmedabad Location" className="w-full h-full object-cover opacity-90" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-gradient-to-t from-cave-950 to-transparent"></div>
                 <div className="absolute top-6 left-6 flex items-center gap-2 stone-panel px-4 py-2 rounded-full">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -104,7 +104,7 @@ export default function Locations() {
               className="stone-panel rounded-[2rem] p-3 relative"
             >
               <div className="aspect-[16/9] relative rounded-[1.5rem] overflow-hidden">
-                <img src="https://drive.google.com/uc?export=view&id=1QBFa19aHvgEyH2JS4ORtjoZhaaEnbX5P" alt="Mehsana Location" className="w-full h-full object-cover grayscale opacity-60" referrerPolicy="no-referrer" />
+                <img src="https://i.ibb.co/p64GJk3M/IMG-1055.jpg" alt="Mehsana Location" className="w-full h-full object-cover grayscale opacity-60" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-gradient-to-t from-cave-950 to-transparent"></div>
                 <div className="absolute top-6 left-6 flex items-center gap-2 stone-panel px-4 py-2 rounded-full z-20">
                   <span className="w-2 h-2 rounded-full bg-fire-glow animate-pulse"></span>
