@@ -1,43 +1,85 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Utensils, Coffee, Flame, Star, MapPin } from 'lucide-react';
+import { Utensils, Coffee, Flame, Star, MapPin, Pizza, Soup } from 'lucide-react';
 
 const menuData = {
-  Starters: [
-    { name: 'Truffle Edamame', desc: 'Steamed edamame tossed in truffle oil and sea salt.', price: '₹450' },
-    { name: 'Crispy Lotus Stem', desc: 'Honey chili glaze, sesame seeds, spring onion.', price: '₹550' },
-    { name: 'Charcoal Bao', desc: 'Activated charcoal buns, pulled jackfruit, spicy mayo.', price: '₹650' },
-    { name: 'Stone-Baked Brie', desc: 'Warm brie, fig jam, artisan crackers.', price: '₹850' },
+  'Appetizers & Soups': [
+    { name: 'Tomato Jasmine Cappuccino', desc: 'Tomato soup fused with jasmine flavoured with cream froth', price: '₹290' },
+    { name: 'Wild Mushroom Cappuccino', desc: 'Creamy mushroom soup topped with cream froth', price: '₹295' },
+    { name: 'Crispy Garlic Lemongrass Soup', desc: 'Aromatic clear soup with garlic and lemongrass', price: '₹290' },
+    { name: 'Gourmet Avocado Bruschetta', desc: 'Greek style avocado cream, pesto and cherry tomato', price: '₹490' },
+    { name: 'Mezze Platter', desc: 'Hummus, sun-dried tomato, baba ganoush, served with pita', price: '₹620' },
+    { name: 'Paneer Tikka (8 pcs)', desc: 'Chef\'s special seasoning and clay roasted', price: '₹510' },
+    { name: 'Hara Bhara Cheese Kebab', desc: 'Spinach and cheese kebabs', price: '₹390' },
+    { name: 'Nachos Grand', desc: 'Refried beans, jalapeno, sour cream, cheese', price: '₹350' },
+    { name: 'Classic Cheese Fondue', desc: 'Melted cheese served with croutons and veggies', price: '₹440' },
+    { name: 'Hungarian Cheese Fries', desc: 'French fries tossed in Hungarian spice and cheese', price: '₹290' }
   ],
-  'Main Course': [
-    { name: 'Smoked Risotto', desc: 'Wild mushroom risotto served under a smoke cloche.', price: '₹950' },
-    { name: 'Cavo Signature Pasta', desc: 'Handmade fettuccine, black garlic cream, parmesan crisp.', price: '₹850' },
-    { name: 'Miso Glazed Eggplant', desc: 'Roasted eggplant, sweet miso, toasted sesame, sticky rice.', price: '₹750' },
-    { name: 'Pan-Seared Tofu Steak', desc: 'Silken tofu, ginger soy glaze, wok-tossed greens.', price: '₹800' },
+  'Dim Sum & Bao': [
+    { name: 'Vegetable Crystal Dim Sum', desc: 'Translucent dumplings filled with fresh veggies (6 pcs)', price: '₹590' },
+    { name: 'Edamame Truffle Dim Sum', desc: 'Edamame and truffle infused dumplings (6 pcs)', price: '₹650' },
+    { name: 'Creamy Mushroom Dim Sum', desc: 'Rich mushroom filled dumplings (6 pcs)', price: '₹690' },
+    { name: 'Cheesy Mushroom Bao', desc: 'Soft steamed buns with cheesy mushroom filling (3 pcs)', price: '₹780' },
+    { name: 'Chilli Potato Bao', desc: 'Spicy potato filled steamed buns (3 pcs)', price: '₹620' },
+    { name: 'Classic Vegetable Bao', desc: 'Traditional vegetable filled steamed buns (3 pcs)', price: '₹640' }
   ],
-  Beverages: [
-    { name: 'Liquid Gold', desc: 'Saffron infused gin alternative, tonic, edible gold dust.', price: '₹450' },
-    { name: 'Cave Water', desc: 'Charcoal filtered water, cucumber, mint, lime.', price: '₹250' },
-    { name: 'Smoked Old Fashioned', desc: 'Zero-proof whiskey alternative, smoked hickory, orange peel.', price: '₹550' },
-    { name: 'Matcha Mojito', desc: 'Ceremonial matcha, fresh mint, lime, cane sugar.', price: '₹450' },
+  'Pasta & Pan Asian': [
+    { name: 'Spicy Arrabbiata Pasta', desc: 'Homemade classic tomato sauce with chili flakes', price: '₹420' },
+    { name: 'Wild Mushroom Spaghetti', desc: 'Mushroom sautéed to perfection with spaghetti cream sauce', price: '₹520' },
+    { name: 'Exotic Vegetable Creamy Pesto Pasta', desc: 'Rich pesto sauce with exotic vegetables', price: '₹450' },
+    { name: 'Burmese Khow Suey Curry', desc: 'Authentic Burmese coconut curry served with rice or noodles', price: '₹620' },
+    { name: 'Thai Green Curry', desc: 'Served with Basil Steam Rice', price: '₹520' },
+    { name: 'Chilli Garlic Noodles', desc: 'Wok-tossed spicy noodles with garlic', price: '₹370' },
+    { name: 'Pad Thai Noodles', desc: 'Classic flat noodles with peanuts and tamarind sauce', price: '₹390' },
+    { name: 'Schezwan Rice', desc: 'Spicy wok-tossed rice with vegetables', price: '₹290' }
   ],
-  Specials: [
-    { name: 'The DJ Platter', desc: 'Assortment of our best starters, perfect for sharing.', price: '₹1800' },
-    { name: 'Liquid Nitrogen Dessert', desc: 'Dark chocolate dome shattered at the table, berry compote.', price: '₹950' },
-    { name: 'Gold Leaf Burger', desc: 'Beyond meat patty, truffle mayo, 24k gold leaf bun.', price: '₹1200' },
+  'Indian Main Course': [
+    { name: 'Paneer Tikka Masala', desc: 'Roasted paneer in a rich tomato and onion gravy', price: '₹420' },
+    { name: 'Paneer Butter Masala', desc: 'Classic paneer in a creamy tomato gravy', price: '₹390' },
+    { name: 'Lasuni Palak Paneer', desc: 'Garlic infused spinach gravy with paneer cubes', price: '₹430' },
+    { name: 'Veg Kolhapuri', desc: 'Spicy mixed vegetable curry', price: '₹340' },
+    { name: 'Veg Hyderabadi', desc: 'Rich spinach and mint based vegetable curry', price: '₹360' },
+    { name: 'Special Covo Paneer', desc: 'Our chef\'s signature paneer preparation', price: '₹650' },
+    { name: 'Dal Makhani', desc: 'Slow-cooked black lentils with butter and cream', price: '₹370' },
+    { name: 'Dal Fry', desc: 'Yellow lentils tempered with cumin and garlic', price: '₹320' }
+  ],
+  'Breads & Rice': [
+    { name: 'Butter Naan', desc: 'Soft Indian bread cooked in tandoor with butter', price: '₹90' },
+    { name: 'Cheese Stuffed Naan', desc: 'Naan stuffed with melted cheese', price: '₹190' },
+    { name: 'Paneer Kulcha', desc: 'Soft bread stuffed with spiced paneer', price: '₹180' },
+    { name: 'Hyderabadi Biryani', desc: 'Aromatic basmati rice cooked with vegetables and spices', price: '₹410' },
+    { name: 'Cheese Golden Rice', desc: 'Special rice preparation baked with cheese', price: '₹550' },
+    { name: 'Jeera Rice', desc: 'Basmati rice tempered with cumin seeds', price: '₹280' }
+  ],
+  'Beverages & Shakes': [
+    { name: 'Mango Mastani Shake', desc: 'Thick mango shake with ice cream and nuts', price: '₹310' },
+    { name: 'Brownie Blast Shake', desc: 'Rich chocolate shake blended with brownie pieces', price: '₹310' },
+    { name: 'Smoking Bubble Gum', desc: 'Signature mocktail with bubble gum flavor and smoke effect', price: '₹280' },
+    { name: 'Fresh Coconut Goa Style', desc: 'Refreshing coconut based mocktail', price: '₹300' },
+    { name: 'Cranberry Mojito', desc: 'Classic mojito with a cranberry twist', price: '₹280' },
+    { name: 'Special Covo Mix Mocktail', desc: 'Our bartender\'s special creation', price: '₹400' },
+    { name: 'Flat White / Macchiato', desc: 'Premium freshly brewed coffee', price: '₹270' }
+  ],
+  'Desserts': [
+    { name: 'Mud pie with Ice Cream', desc: 'Warm gooey chocolate mud pie served with vanilla ice cream', price: '₹290' },
+    { name: 'Gulab Jamun with Ice Cream', desc: 'Classic Indian dessert served warm with cold ice cream', price: '₹250' },
+    { name: 'Dry Fruit Sundae', desc: 'Assorted ice creams topped with rich dry fruits and nuts', price: '₹240' }
   ]
 };
 
 const categories = [
-  { id: 'Starters', icon: <Flame size={18} /> },
-  { id: 'Main Course', icon: <Utensils size={18} /> },
-  { id: 'Beverages', icon: <Coffee size={18} /> },
-  { id: 'Specials', icon: <Star size={18} /> },
+  { id: 'Appetizers & Soups', icon: <Soup size={18} /> },
+  { id: 'Dim Sum & Bao', icon: <Star size={18} /> },
+  { id: 'Pasta & Pan Asian', icon: <Pizza size={18} /> },
+  { id: 'Indian Main Course', icon: <Utensils size={18} /> },
+  { id: 'Breads & Rice', icon: <Flame size={18} /> },
+  { id: 'Beverages & Shakes', icon: <Coffee size={18} /> },
+  { id: 'Desserts', icon: <Star size={18} /> },
 ];
 
 export default function Menu() {
   const [activeLocation, setActiveLocation] = useState('Ahmedabad');
-  const [activeCategory, setActiveCategory] = useState('Starters');
+  const [activeCategory, setActiveCategory] = useState('Appetizers & Soups');
 
   return (
     <div className="w-full pt-32 pb-24 min-h-screen relative">
@@ -85,53 +127,53 @@ export default function Menu() {
           <>
             {/* Category Tabs */}
             <div className="flex flex-wrap justify-center gap-4 mb-16">
-          {categories.map((cat, i) => (
-            <motion.button
-              key={cat.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full font-display uppercase tracking-widest text-sm transition-all duration-500 ${
-                activeCategory === cat.id
-                  ? 'bg-fire-base text-white font-medium shadow-[0_0_15px_rgba(255,107,53,0.4)]'
-                  : 'stone-panel text-stone-400 hover:text-stone-200 hover:border-fire-glow/30'
-              }`}
-            >
-              {cat.icon}
-              {cat.id}
-            </motion.button>
-          ))}
-        </div>
-
-        {/* Menu Items Grid */}
-        <div className="min-h-[500px]">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeCategory}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6"
-            >
-              {menuData[activeCategory as keyof typeof menuData].map((item, idx) => (
-                <div
-                  key={idx}
-                  className="stone-panel p-8 rounded-[1.5rem] flex flex-col justify-between transition-all duration-500 hover:bg-stone-800/80 hover:border-fire-glow/30"
+              {categories.map((cat, i) => (
+                <motion.button
+                  key={cat.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  onClick={() => setActiveCategory(cat.id)}
+                  className={`flex items-center gap-2 px-6 py-3 rounded-full font-display uppercase tracking-widest text-sm transition-all duration-500 ${
+                    activeCategory === cat.id
+                      ? 'bg-fire-base text-white font-medium shadow-[0_0_15px_rgba(255,107,53,0.4)]'
+                      : 'stone-panel text-stone-400 hover:text-stone-200 hover:border-fire-glow/30'
+                  }`}
                 >
-                  <div>
-                    <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-2xl font-display font-medium uppercase tracking-wider text-stone-200">{item.name}</h3>
-                      <span className="text-xl font-medium text-fire-glow">{item.price}</span>
-                    </div>
-                    <p className="text-stone-400 leading-relaxed font-light">{item.desc}</p>
-                  </div>
-                </div>
+                  {cat.icon}
+                  {cat.id}
+                </motion.button>
               ))}
-            </motion.div>
-          </AnimatePresence>
-        </div>
+            </div>
+
+            {/* Menu Items Grid */}
+            <div className="min-h-[500px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeCategory}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
+                  className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                >
+                  {menuData[activeCategory as keyof typeof menuData].map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="stone-panel p-8 rounded-[1.5rem] flex flex-col justify-between transition-all duration-500 hover:bg-stone-800/80 hover:border-fire-glow/30"
+                    >
+                      <div>
+                        <div className="flex justify-between items-start mb-4">
+                          <h3 className="text-2xl font-display font-medium uppercase tracking-wider text-stone-200">{item.name}</h3>
+                          <span className="text-xl font-medium text-fire-glow">{item.price}</span>
+                        </div>
+                        <p className="text-stone-400 leading-relaxed font-light">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </>
         ) : (
           <motion.div 
